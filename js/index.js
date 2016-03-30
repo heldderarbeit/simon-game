@@ -3,7 +3,7 @@
 var gameMemory = {
   boardIsOn: false,
   roundNo: 0,
-  maxRounds: 5,
+  maxRounds: 15,
   // prevents putting the game starting function in a queue
   startActive: false,
   colorSequence: [],
