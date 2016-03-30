@@ -1,0 +1,312 @@
+/* Background pattern from subtlepatterns.com */
+
+@import url(https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco);
+@import url(https://fonts.googleapis.com/css?family=Elsie+Swash+Caps:900);
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
+body {
+  background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/retina_wood.png");
+  background-repeat: repeat;
+  font-family: 'Sue Ellen Francisco', Helvetica, sans-serif;
+}
+
+.horizontal-align {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+* {
+  cursor: default;
+}
+
+/* empty play board */
+
+#gameboard {
+  background-color: #333333;
+  width: 470px;
+  height: 470px;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+  /* for positioning the central control button */
+  position: relative;
+}
+
+/* adjusting the buttons frame*/
+
+.btns {
+  padding-top: 12.5px;
+}
+
+/* layer empty play board with the color buttons */
+
+.quarter-btn {
+  width: 220px;
+  height: 220px;
+  /* place that element inline (like <span>), but treat it as though it were a block level elelment */
+  display: inline-block;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #333333;
+}
+
+#greenBtn {
+  background-color: #00A74A;
+  /* rounding of the top-left corner */
+  border-top-left-radius: 100%;
+}
+
+#redBtn {
+  background-color: #9F0F17;
+  border-top-right-radius: 100%;
+}
+
+#yellowBtn {
+  background-color: #CCA707;
+  border-bottom-left-radius: 100%;
+}
+
+#blueBtn {
+  background-color: #094A8F;
+  border-bottom-right-radius: 100%;
+}
+
+/* white button with game control */
+
+#centerfield {
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #333333;
+  border-width: 11px;
+  height: 237.5px;
+  width: 237.5px;
+  /* position relative to the gameboard div */
+  position: absolute;
+  /* moving to the middle of board */
+  top: 25%;
+  left: 25%;
+  background-color: #ECE7EE;
+}
+
+#gamename {
+  font-family: 'Elsie Swash Caps', Arial, sans-serif;
+  font-size: 50px;
+  color: #222222;
+  padding-top: 32.5px;
+  /* for positioning of trademark */
+  position: relative;
+  padding-right: 7.5px;
+}
+
+sup {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 17.5px;
+  position: absolute;
+  top: 55%;
+  color: #222222;
+}
+
+#controlPanel {
+  margin-top: -15px;
+}
+
+#display {
+  background-color: #32050C;
+  border-color: #222222;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 20%;
+  width: 55px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 115px;
+}
+
+#led {
+  font-family: "VT323";
+  font-size: 32.5px;
+  letter-spacing: 0.5px;
+  line-height: 0.975em;
+  margin-left: -2.5px;
+}
+
+@-moz-document url-prefix() {
+  #led {
+    line-height: 0.9em;
+  }
+}
+
+.ledOff {
+  color: #430710;
+}
+
+.ledOn {
+  color: #A00A1F;
+}
+
+.ctrl-btn {
+  width: 27px;
+  height: 27px;
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 3.625px;
+  border-color: #444444;
+  /* show control input in a row */
+  display: inline-block;
+  box-shadow: 0px 1.25px 2px 1px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  position: absolute;
+  bottom: 80px;
+}
+
+#start-btn {
+  background-color: #FC0102;
+  margin-left: -87.5px;
+}
+
+#strict-btn {
+  background-color: #FFFF00;
+  margin-left: -35px;
+}
+
+.simple-field {
+  font-size: 15px;
+  color: #292225;
+  position: absolute;
+}
+
+#count-field {
+  font-size: 17px;
+  bottom: 50px;
+  margin-left: -17.5px;
+}
+
+#start-field,
+#strict-field {
+  bottom: -30px;
+}
+
+#start-field {
+  margin-left: -13.75px;
+}
+
+#strict-field {
+  margin-left: -17.25px;
+}
+
+#control-led {
+  width: 9px;
+  height: 9px;
+  border-width: 1.75px;
+  border-style: solid;
+  border-radius: 50%;
+  margin-top: -16.25px;
+  margin-left: 5px;
+}
+
+.control-led-off {
+  background-color: #32050C;
+}
+
+.control-led-on {
+  background-color: #841726;
+}
+
+.switch {
+  width: 39px;
+  height: 19px;
+  background: #222222;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.switch:after,
+.switch:before {
+  font-size: 12px;
+  position: absolute;
+  line-height: 30px;
+  z-index: 0;
+  color: #fff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.switch:after {
+  right: 0.8em;
+}
+
+.switch:before {
+  left: 1.1em;
+}
+
+.switch label {
+  /* sets the whole switch area clickable */
+  width: 39px;
+  height: 19px;
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+/* change position of the switch */
+
+.switch label:after {
+  content: "";
+  display: block;
+  /* dimensions of the toggle */
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  background-color: #3193DE;
+  border-radius: 20%;
+  top: 0px;
+  left: 20px;
+  border-color: #333333;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.switch input[type=checkbox] {
+  visibility: hidden;
+}
+
+.switch input[type=checkbox]:checked + label:after {
+  /* sets starting position of the toggle */
+  left: 0px;
+}
+
+.text-field {
+  color: #292225;
+  font-size: 15px;
+  position: absolute;
+  font-weight: bold;
+}
+
+#on-field {
+  right: -22.5px;
+  top: -1.25px;
+}
+
+#off-field {
+  right: 45.5px;
+  top: -1.25px;
+}
+
+.pointercursor {
+  cursor: pointer;
+}
