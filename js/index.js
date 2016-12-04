@@ -39,7 +39,6 @@ var gameMemory = {
   lvl2speed: 700,
   lvl3speed: 500,
   lvl4speed: 300
-  
 };
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -207,9 +206,11 @@ function getLightSpeed() {
 
 function lightColorButtons(arr, index) {
   window.clearTimeout(gameMemory.lightTimeout);
+  
   if (gameMemory.boardIsOn) {
     gameMemory.thisRoundSolved = false;
     var colorsToShow = arr;
+    
     if (index < colorsToShow.length) {
       var number = colorsToShow[index];
       var brightColor = gameMemory["brightcolor" + number];
@@ -219,18 +220,22 @@ function lightColorButtons(arr, index) {
       var audioString = "btn" + number + "frequency";
       playSound(gameMemory[audioString]);
       var lightSpeed = getLightSpeed();
+      
       gameMemory.lightTimeout = window.setTimeout(function() {
         $(targetBtn).css("background-color", origColor);
+        
         window.setTimeout(function() {
           index += 1;
           lightColorButtons(colorsToShow, index);
         }, lightSpeed);
       }, lightSpeed);
+      
       // last index reached
       if (index === colorsToShow.length - 1) {
         gameMemory.waitForInput = true;
         $(".quarter-btn").addClass("pointercursor");
         // implements time limit for the color sequence
+        
         gameMemory.counterTimeout = window.setTimeout(function() {
           if (!gameMemory.thisRoundSolved && gameMemory.boardIsOn) {
             gameMemory.indexInColorSequence = 0;
@@ -284,6 +289,7 @@ $(".quarter-btn").click(function() {
     $(".quarter-btn").removeClass("pointercursor");
     var pressedColor = $(this).attr("id");
     var numberColor;
+    
     switch (pressedColor) {
       case "greenBtn":
         numberColor = 1;
@@ -300,16 +306,19 @@ $(".quarter-btn").click(function() {
       default:
         break;
     }
+    
     var audioString = "btn" + numberColor + "frequency";
     playSound(gameMemory[audioString]);
     var brightColor = gameMemory["brightcolor" + numberColor];
     var origColor = gameMemory["btn" + numberColor + "color"];
+   
     // lights the color buttons on click
     $(this).css("background-color", brightColor);
     $(this).delay(200).queue(function() {
       $(this).css("background-color", origColor);
       $(this).dequeue();
     });
+    
     var i = gameMemory.indexInColorSequence;
     if (numberColor === gameMemory.colorSequence[i]) {
       if (gameMemory.indexInColorSequence === gameMemory.colorSequence.length - 1) {
@@ -320,6 +329,7 @@ $(".quarter-btn").click(function() {
         gameMemory.indexInColorSequence++;
         /* sets the color pieces clickable again */
         var clickSpeed = 700;
+        
         window.setTimeout(function() {
           gameMemory.waitForInput = true;
           $(".quarter-btn").addClass("pointercursor");
@@ -330,6 +340,7 @@ $(".quarter-btn").click(function() {
       displayWarning();
       window.clearTimeout(gameMemory.counterTimeout);
       gameMemory.counterTimeout = undefined;
+      
       if (!gameMemory.strictMode) {
         repeatRound();
       } else {
