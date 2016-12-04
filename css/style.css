@@ -1,5 +1,4 @@
 /* Background pattern from subtlepatterns.com */
-
 @import url(https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco);
 @import url(https://fonts.googleapis.com/css?family=Elsie+Swash+Caps:900);
 @import url(https://fonts.googleapis.com/css?family=VT323);
@@ -29,7 +28,6 @@ body {
 }
 
 /* empty play board */
-
 #gameboard {
   background-color: #333333;
   width: 470px;
@@ -44,13 +42,11 @@ body {
 }
 
 /* adjusting the buttons frame*/
-
 .btns {
   padding-top: 12.5px;
 }
 
 /* layer empty play board with the color buttons */
-
 .quarter-btn {
   width: 220px;
   height: 220px;
@@ -83,7 +79,6 @@ body {
 }
 
 /* white button with game control */
-
 #centerfield {
   border-radius: 50%;
   border-style: solid;
